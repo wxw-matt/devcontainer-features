@@ -9,7 +9,7 @@ echo "The provided greeting is: $GREETING"
 # The 'install.sh' entrypoint script is always executed as the root user.
 #
 # These following environment variables are passed in by the dev container CLI.
-# These may be useful in instances where the context of the final 
+# These may be useful in instances where the context of the final
 # remoteUser or containerUser is useful.
 # For more details, see https://containers.dev/implementors/features#user-env-var
 echo "The effective dev container remoteUser is '$_REMOTE_USER'"

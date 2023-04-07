@@ -20,10 +20,10 @@
 #
 # These scripts are run as 'root' by default. Although that can be changed
 # with the '--remote-user' flag.
-# 
+#
 # This test can be run with the following command:
 #
-#    devcontainer features test    \ 
+#    devcontainer features test    \
 #               --features color   \
 #               --remote-user root \
 #               --skip-scenarios   \
@@ -40,7 +40,9 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-check "validate favorite color" color | grep 'my favorite color is red'
+CACHE_DIR="$HOME/.cache/scripts_cache"
+check "validate first file" ls "$CACHE_DIR"/b1ebbb71d26f4da08389ce5d54baf0c0
+check "validate second file" ls "$CACHE_DIR"/186afd98891bd2c26adfb5b3045d236c
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
