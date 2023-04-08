@@ -9,7 +9,7 @@
                 "username": "octocat"
             },
             "script_runner": {
-                "script1": "show_custom_ubuntu_welcome_info#https://gist.githubusercontent.com/wxw-matt/b1ebbb71d26f4da08389ce5d54baf0c0/raw"
+                "script1": "install_vim_plugins#https://gist.githubusercontent.com/wxw-matt/ff35edb5e60c2a404b18724bf63be964/raw"
             }
         },
         "remoteUser": "octocat"

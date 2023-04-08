@@ -17,7 +17,7 @@ set -e
 source dev-container-features-test-lib
 
 CACHE_DIR="/usr/local/scripts_runner/scripts"
-check "validate first file" ls "$CACHE_DIR"/show_custom_ubuntu_welcome_info
+check "validate first file" ls "$CACHE_DIR"/install_vim_plugins
 check "validate second file" ls "$CACHE_DIR"/avoid_service_ssh_start
 
 # Report result

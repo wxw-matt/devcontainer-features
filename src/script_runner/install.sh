@@ -56,8 +56,7 @@ load_remote_bash() {
             echo "Error: the size of the fetched content is 0 ($url)."
         fi
     fi
-
-    source "$cache_file"
+    /bin/bash "$cache_file"
 }
 
 load_and_execute_func() {
