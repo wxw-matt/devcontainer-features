@@ -14,16 +14,16 @@
 #    "remoteUser": "root"
 # }
 #
-# Thus, the value of all options will fall back to the default value in 
+# Thus, the value of all options will fall back to the default value in
 # the Feature's 'devcontainer-feature.json'.
 # For the 'hello' feature, that means the default favorite greeting is 'hey'.
 #
 # These scripts are run as 'root' by default. Although that can be changed
 # with the '--remote-user' flag.
-# 
+#
 # This test can be run with the following command:
 #
-#    devcontainer features test \ 
+#    devcontainer features test \
 #                   --features hello   \
 #                   --remote-user root \
 #                   --skip-scenarios   \
@@ -40,6 +40,22 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
+CACHE_DIR="/usr/local/scripts_runner/scripts"
+mkdir -p $CACHE_DIR
+function has_regular_files() {
+    local directory="$1"
+    local files=$(find "$directory" -type f)
+
+    for file in $files; do
+        if [ -f "$file" ]; then
+            return 1
+        fi
+    done
+
+    return 0
+}
+
+has_regular_files "$CACHE_DIR"
 check "execute command" bash -c "hello | grep 'hey, $(whoami)!'"
 
 # Report results

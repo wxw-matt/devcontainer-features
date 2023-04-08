@@ -1,13 +1,13 @@
 {
     "name": "Load and run shell scripts",
-    "id": "color",
+    "id": "script_runner",
     "version": "0.1.0",
     "description": "A feature to load and run remote shell scripts",
     "options": {
         "script1": {
             "type": "string",
             "default": "",
-            "description": "The script one."
+            "description": "The script 1."
         },
         "script2": {
             "type": "string",
@@ -21,6 +21,6 @@
         }
     },
     "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils"
+        // "ghcr.io/devcontainers/features/common-utils"
     ]
 }

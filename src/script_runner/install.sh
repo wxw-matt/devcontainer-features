@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -e
-CACHE_DIR="$HOME/.cache/scripts_cache"
+# CACHE_DIR="/scripts_runner/scripts"
+CACHE_DIR="/usr/local/scripts_runner/scripts"
+DEBUG_FILE="$CACHE_DIR/.debug"
+
+mkdir -p $CACHE_DIR
+touch $DEBUG_FILE
+
+debug_logln() {
+  printf "$(date +"%Y-%m-%d %H:%M:%S"):\t$@\n" >> $DEBUG_FILE
+}
 
 download_with_retry() {
   local url="$1"
@@ -25,14 +34,15 @@ download_with_retry() {
 }
 
 load_remote_bash() {
-    if [ $# -ne 1 ]; then
-        echo "Usage: load_remote_bash <remote_url>"
+    if [ $# -ne 2 ]; then
+        echo "Usage: load_remote_bash <remote_url> <filename>"
         return 1
     fi
 
     local url="$1"
+    local filename="$2"
     local cache_dir="$CACHE_DIR"
-    local cache_file="$cache_dir/$(basename $url)"
+    local cache_file="$cache_dir/$filename"
 
     if [ ! -d "$cache_dir" ]; then
         mkdir -p "$cache_dir"
@@ -62,21 +72,34 @@ load_and_execute_func() {
     load_remote_bash $url
     eval $func
 }
+
 # Define the list of environment variables
-scripts=("SCRIPT1" "SCRIPT2" "SCRIPT3")
+no_scripts=1
 
 # Loop through the scriptiables
-for script in "${scripts[@]}"
+for i in {1..10}
 do
+  script="SCRIPT$i"
+  script_info="${!script}"
+  filename="${script_info%%#*}"
+  url="${script_info#*#}"
+
   # Check if the scriptiable is empty
-  if [ -z "${!script}" ]
+  if [ -z "${script_info}" ]
   then
     # If the scriptiable is empty, skip to the next one
-    echo "Skipping $script, not specified"
+    debug_logln "Skipping $script: ${script_info} not specified"
     continue
   fi
+  no_scripts=0
 
   # If the scriptiable is not empty, do something with it
-  echo "Processing $script: ${!script}"
-  load_remote_bash ${!script}
+  debug_logln "Processing $script: ${filename}#${url}"
+  load_remote_bash ${url} ${filename}
 done
+
+if [ "$no_scripts" -eq 1 ]; then
+  echo "no_scripts" > "$CACHE_DIR"/.scripts_status
+else
+  echo "has_scripts" > "$CACHE_DIR"/.scripts_status
+fi

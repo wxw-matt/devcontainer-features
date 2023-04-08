@@ -40,8 +40,8 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-CACHE_DIR="$HOME/.cache/scripts_cache"
-check "validate one file" ls "$CACHE_DIR"/b1ebbb71d26f4da08389ce5d54baf0c0
+CACHE_DIR="/usr/local/scripts_runner/scripts"
+check "Should have one file" ls "$CACHE_DIR"/show_custom_ubuntu_welcome_info
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

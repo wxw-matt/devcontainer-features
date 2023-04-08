@@ -41,28 +41,25 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
 
-CACHE_DIR="$HOME/.cache/scripts_cache"
-mkdir -p $CACHE_DIR
-function has_regular_files() {
-    local directory="$1"
-    local files=$(find "$directory" -type f)
+CACHE_DIR="/usr/local/scripts_runner/scripts"
 
-    for file in $files; do
-        if [ -f "$file" ]; then
-            return 1
-        fi
-    done
-
-    return 0
+filename="$CACHE_DIR"/.scripts_status
+function check_no_scripts() {
+  file="$1"
+  if grep -q 'no_scripts' "$file"; then
+    return 0  # 'no_scripts' found, return 0 (success)
+  else
+    return 1  # 'no_scripts' not found, return 1 (error)
+  fi
 }
 
-has_regular_files "$CACHE_DIR"
-exit_code=$?
-if [ $exit_code -eq 0 ]; then
-    check "No file found if no scripts specified" true
+if check_no_scripts $filename; then
+  echo "File contains 'no_scripts'"
 else
-    check "No file found if no scripts specified" false
+  echo "File does not contain 'no_scripts'"
 fi
+
+check "Should have no files" $(check_no_scripts $filename)
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
