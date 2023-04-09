@@ -1,7 +1,7 @@
 
-# Load and run remote shell scripts (command_runner)
+# Run shell commands (command_runner)
 
-A feature to load and run remote shell scripts
+A feature to run any valid shell commands, such as apt-get, curl/wget, of course, bash/zsh
 
 ## Example Usage
 
@@ -15,9 +15,9 @@ A feature to load and run remote shell scripts
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| script1 | The script 1. | string | - |
-| script2 | The script 2. | string | - |
-| script3 | The script 3. | string | - |
+| command1 | The command 1. | string | - |
+| command2 | The command 2. | string | - |
+| command3 | The command 3. | string | - |
 
 
 
