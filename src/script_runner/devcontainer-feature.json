@@ -1,7 +1,7 @@
 {
-    "name": "Load and run shell scripts",
+    "name": "Load and run remote shell scripts",
     "id": "script_runner",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A feature to load and run remote shell scripts",
     "options": {
         "script1": {
