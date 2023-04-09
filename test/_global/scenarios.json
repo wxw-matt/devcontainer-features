@@ -8,5 +8,16 @@
             }
         },
         "remoteUser": "vscode"
+    },
+    "command_runner": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "command_runner": {
+                "command1": "apt update -y",
+                "command2": "apt install -y vim",
+                "command3": "echo \"cmd2\" > /tmp/cmd2.log"
+            }
+        },
+        "remoteUser": "root"
     }
 }

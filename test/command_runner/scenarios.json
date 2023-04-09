@@ -13,7 +13,7 @@
             }
         }
     },
-    "test_with_two_commands": {
+    "test_with_three_commands": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "command_runner": {
