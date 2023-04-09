@@ -1,0 +1,25 @@
+{
+    "name": "Run shell commands",
+    "id": "command_runner",
+    "version": "0.1.0",
+    "description": "A feature to run any valid shell commands, such as apt-get, curl/wget, of course, bash/zsh",
+    "options": {
+        "command1": {
+            "type": "string",
+            "default": "",
+            "description": "The command 1."
+        },
+        "command2": {
+            "type": "string",
+            "default": "",
+            "description": "The command 2."
+        },
+        "command3": {
+            "type": "string",
+            "default": "",
+            "description": "The command 3."
+        }
+    },
+    "installsAfter": [
+    ]
+}

@@ -40,8 +40,8 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-CACHE_DIR="/usr/local/scripts_runner/scripts"
-check "Should have one file under the user $(whoami)" ls "$CACHE_DIR"/install_vim_plugins
+check "Should have vim on the Linux" which vim
+check "Should have a file named cmd2.log in /tmp under the user $(whoami)" [ -f /tmp/cmd2.log ] && grep -q 'cmd2' /tmp/cmd2.log
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

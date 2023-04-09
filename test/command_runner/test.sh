@@ -40,8 +40,8 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-CACHE_DIR="/usr/local/scripts_runner/scripts"
-check "Should have one file under the user $(whoami)" ls "$CACHE_DIR"/install_vim_plugins
+
+LOG_DIR="/var/log/command_runner"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

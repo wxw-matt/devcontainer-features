@@ -41,8 +41,8 @@ source dev-container-features-test-lib
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
 CACHE_DIR="/usr/local/scripts_runner/scripts"
-check "validate first file" ls "$CACHE_DIR"/install_vim_plugins
-check "validate second file" ls "$CACHE_DIR"/avoid_service_ssh_start
+check "validate first file under the user $(whoami)" ls "$CACHE_DIR"/install_vim_plugins
+check "validate second file under the user $(whoami)" ls "$CACHE_DIR"/avoid_service_ssh_start
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

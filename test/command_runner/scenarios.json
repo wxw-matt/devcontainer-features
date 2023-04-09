@@ -1,0 +1,27 @@
+{
+    "test_with_one_command": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:1": {
+                "installZsh": false,
+                "installOhMyZsh": false,
+                "upgradePackages": false,
+                "username": "octocat"
+            },
+            "command_runner": {
+                "command1": "echo cmd1 > /tmp/cmd1.log"
+            }
+        }
+    },
+    "test_with_two_commands": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "command_runner": {
+                "command1": "apt update -y",
+                "command2": "apt install -y vim",
+                "command3": "touch /tmp/cmd2.log"
+            }
+        },
+        "remoteUser": "root"
+    }
+}
