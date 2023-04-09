@@ -16,6 +16,9 @@ run_as() {
     COMMAND="$@"
     if [ "$(id -u)" -eq 0 ] && [ "$username" != "root" ]; then
         su - "$username" -c "$COMMAND"
+    elif [[ $COMMAND == "su -"* ]]; then
+        debug_logln "su - $COMMAND"
+        $COMMAND
     else
         bash -c "$COMMAND"
     fi
