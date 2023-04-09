@@ -11,6 +11,38 @@ debug_logln() {
   printf "$(date +"%Y-%m-%d %H:%M:%S"):\t$@\n" >> $DEBUG_FILE
 }
 
+run_as() {
+    local username=$1
+    shift
+    COMMAND="$@"
+    if [ "$(id -u)" -eq 0 ] && [ "$username" != "root" ]; then
+        su - "$username" -c "$COMMAND"
+    else
+        $COMMAND
+    fi
+}
+
+get_current_user() {
+    local username="${username:-"${_REMOTE_USER:-"automatic"}"}"
+    # Determine the appropriate non-root user
+    if [ "${username}" = "auto" ] || [ "${username}" = "automatic" ]; then
+        username=""
+        possible_users=("vscode" "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+        for current_user in "${possible_users[@]}"; do
+            if id -u "${current_user}" > /dev/null 2>&1; then
+                username="${current_user}"
+                break
+            fi
+        done
+        if [ "${username}" = "" ]; then
+            username=root
+        fi
+    elif [ "${username}" = "none" ] || ! id -u ${username} > /dev/null 2>&1; then
+        username=root
+    fi
+    echo "$username"
+}
+
 download_with_retry() {
   local url="$1"
   local filename="$2"
@@ -34,9 +66,20 @@ download_with_retry() {
 }
 
 load_remote_bash() {
-    if [ $# -ne 2 ]; then
+    local username='root'
+    local run_as_user=0
+
+    if [ $# -lt 2 ] ||  [ $# -gt 3 ]; then
         echo "Usage: load_remote_bash <remote_url> <filename>"
+        echo "Or"
+        echo "Usage: load_remote_bash <username> <remote_url> <filename>"
         return 1
+    fi
+
+    if [ $# -eq 3 ]; then
+        username=$1
+        run_as_user=1
+        shift
     fi
 
     local url="$1"
@@ -56,7 +99,11 @@ load_remote_bash() {
             echo "Error: the size of the fetched content is 0 ($url)."
         fi
     fi
-    /bin/bash "$cache_file"
+    if [ $run_as_user -eq 1 ]; then
+        run_as $username /bin/bash "$cache_file"
+    else
+        /bin/bash "$cache_file"
+    fi
 }
 
 load_and_execute_func() {
@@ -93,8 +140,9 @@ do
   no_scripts=0
 
   # If the scriptiable is not empty, do something with it
-  debug_logln "Processing $script: ${filename}#${url}"
-  load_remote_bash ${url} ${filename}
+  current_user=$(get_current_user)
+  debug_logln "Processing $script as ${current_user}: ${filename}#${url}"
+  load_remote_bash ${current_user} ${url} ${filename}
 done
 
 if [ "$no_scripts" -eq 1 ]; then

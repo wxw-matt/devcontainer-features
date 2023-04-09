@@ -6,6 +6,7 @@
                 "script1": "install_vim_plugins#https://gist.githubusercontent.com/wxw-matt/ff35edb5e60c2a404b18724bf63be964/raw",
                 "script2": "avoid_service_ssh_start#https://gist.github.com/wxw-matt/186afd98891bd2c26adfb5b3045d236c/raw"
             }
-        }
+        },
+        "remoteUser": "vscode"
     }
 }
