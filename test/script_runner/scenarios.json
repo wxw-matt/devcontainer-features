@@ -18,7 +18,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "script_runner": {
-                "script1": "show_custom_ubuntu_welcome_info#https://gist.githubusercontent.com/wxw-matt/b1ebbb71d26f4da08389ce5d54baf0c0/raw",
+                "script1": "install_vim_plugins#https://gist.githubusercontent.com/wxw-matt/ff35edb5e60c2a404b18724bf63be964/raw",
                 "script2": "avoid_service_ssh_start#https://gist.github.com/wxw-matt/186afd98891bd2c26adfb5b3045d236c/raw"
             }
         }
