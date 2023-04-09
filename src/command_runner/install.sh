@@ -17,7 +17,7 @@ run_as() {
     if [ "$(id -u)" -eq 0 ] && [ "$username" != "root" ]; then
         su - "$username" -c "$COMMAND"
     else
-        $COMMAND
+        bash -c "$COMMAND"
     fi
 }
 
