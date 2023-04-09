@@ -1,5 +1,5 @@
 
-# Load and run shell scripts (script_runner)
+# Load and run remote shell scripts (script_runner)
 
 A feature to load and run remote shell scripts
 
