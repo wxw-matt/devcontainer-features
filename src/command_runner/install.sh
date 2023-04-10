@@ -45,7 +45,7 @@ get_current_user() {
     echo "$username"
 }
 
-debug_logln "Current user: $(get_current_user)"
+debug_logln "Current user: $(whoami): $(get_current_user)"
 
 # Loop through the commands
 for i in {1..10}
@@ -62,7 +62,6 @@ do
   fi
 
   # If the command is not empty, do something with it
-  current_user=$(get_current_user)
-  debug_logln "Processing $the_command as ${current_user}"
-  run_as $current_user $the_command
+  debug_logln "Processing $the_command"
+  bash -c "$the_command"
 done

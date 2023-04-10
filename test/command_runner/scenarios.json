@@ -19,7 +19,8 @@
             "command_runner": {
                 "command1": "apt update -y",
                 "command2": "apt install -y vim",
-                "command3": "echo \"cmd2\" > /tmp/cmd2.log"
+                "command3": "echo \"cmd2\" > /tmp/cmd2.log",
+                "command4": "su - vscode -c 'export > /tmp/env_vars.log'"
             }
         },
         "remoteUser": "root"
