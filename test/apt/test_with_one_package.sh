@@ -29,6 +29,7 @@
 #               --skip-scenarios   \
 #               --base-image mcr.microsoft.com/devcontainers/base:ubuntu \
 #               /path/to/this/repo
+#    devcontainer features test -f apt
 
 set -e
 

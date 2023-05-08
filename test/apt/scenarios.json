@@ -3,7 +3,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "apt": {
-                "command1": "vim"
+                "packages": "vim"
             }
         }
     },
@@ -11,7 +11,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "apt": {
-                "command1": "vim telnet curl"
+                "packages": "telnet curl"
             }
         },
         "remoteUser": "root"

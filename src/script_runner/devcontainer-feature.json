@@ -1,5 +1,5 @@
 {
-    "name": "Load and run remote shell scripts",
+    "name": "A Remote Shell Scripts Runner",
     "id": "script_runner",
     "version": "0.5.0",
     "description": "A feature to load and run remote shell scripts",

@@ -1,5 +1,5 @@
 {
-    "name": "Run shell commands",
+    "name": "A Shell Command Runner",
     "id": "command_runner",
     "version": "0.5.0",
     "description": "A feature to run any valid shell commands, such as apt-get, curl/wget, of course, bash/zsh",

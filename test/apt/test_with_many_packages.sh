@@ -29,7 +29,7 @@
 #               --skip-scenarios   \
 #               --base-image mcr.microsoft.com/devcontainers/base:ubuntu \
 #               /path/to/this/repo
-
+#    devcontainer features test -f apt
 set -e
 
 # Optional: Import test library bundled with the devcontainer CLI
@@ -40,7 +40,7 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-check "Should have vim on the Linux" which vim
+check "Should have curl on the Linux" which curl
 check "Should have telnet on the Linux" which telnet
 
 # Report result
