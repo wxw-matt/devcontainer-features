@@ -9,7 +9,7 @@ Install packages easily.
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/wxw-matt/devcontainer-features/apt:latest": {
-			"packages": "vim telnet curl",
+			"packages": "vim telnet curl"
         }
     }
 }
