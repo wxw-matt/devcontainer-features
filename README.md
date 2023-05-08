@@ -1,5 +1,20 @@
 # Command and Script Runner, a DevContainer feature that allows you to run any bash scripts without pain:
 
+## `apt`
+Install packages easily.
+
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/wxw-matt/devcontainer-features/apt:latest": {
+			"packages": "vim telnet curl",
+        }
+    }
+}
+```
+
 ## `command runner`
 It is quite handy to have your packages installed without using other features.
 
@@ -10,8 +25,8 @@ You can have up to 10 commands.
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/wxw-matt/devcontainer-features/command_runner:latest": {
-            "command1": "apt update -y",
-            "command2": "apt install -y vim"
+			"command1": "curl -L 'https://github.com/docker/compose/releases/download/v2.17.3/docker-compose-$(uname -s)-$(uname -m)' -o /usr/local/bin/docker-compose",
+			"command2": "chmod +x /usr/local/bin/docker-compose"
         }
     }
 }

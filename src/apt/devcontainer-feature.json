@@ -1,0 +1,20 @@
+{
+    "name": "Apt can install packages on Debian-like systems",
+    "id": "apt",
+    "version": "0.1.0",
+    "description": "A feature to install packages on Debian like systems",
+    "options": {
+        "packages": {
+            "type": "string",
+            "default": "vim",
+            "description": "Package names delimited by commas."
+        },
+        "clean_cache": {
+            "type": "boolean",
+            "default": true,
+            "description": "Remove cache after the packages installed"
+        }
+    },
+    "installsAfter": [
+    ]
+}

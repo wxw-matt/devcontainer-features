@@ -1,0 +1,19 @@
+{
+    "test_with_one_package": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "apt": {
+                "command1": "vim"
+            }
+        }
+    },
+    "test_with_many_packages": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "apt": {
+                "command1": "vim telnet curl"
+            }
+        },
+        "remoteUser": "root"
+    }
+}
