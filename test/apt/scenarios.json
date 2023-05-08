@@ -3,7 +3,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "apt": {
-                "packages": "vim"
+                "packages": "vim",
+                "local_mirror": true
             }
         }
     },
@@ -11,7 +12,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "apt": {
-                "packages": "telnet curl"
+                "packages": "telnet curl",
+                "local_mirror": true
             }
         },
         "remoteUser": "root"

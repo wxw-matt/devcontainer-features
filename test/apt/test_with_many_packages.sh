@@ -43,6 +43,11 @@ source dev-container-features-test-lib
 check "Should have curl on the Linux" which curl
 check "Should have telnet on the Linux" which telnet
 
+if [ -n "$LOCAL_MIRROR" ]; then
+  # TODO check the geo position
+  check "Should use local mirror" grep "http://au." /etc/apt/sources.list
+fi
+
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
 reportResults

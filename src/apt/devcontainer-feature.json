@@ -1,7 +1,7 @@
 {
     "name": "Apt can install packages on Debian-like systems",
     "id": "apt",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "A feature to install packages on Debian like systems",
     "options": {
         "packages": {
@@ -13,6 +13,11 @@
             "type": "boolean",
             "default": true,
             "description": "Remove cache after the packages installed"
+        },
+        "local_mirror": {
+            "type": "boolean",
+            "default": true,
+            "description": "Using local apt mirror"
         }
     },
     "installsAfter": [
