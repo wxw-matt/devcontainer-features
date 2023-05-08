@@ -1,4 +1,14 @@
 {
+    "apt": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "command_runner": {
+                "packages": "vim telnet",
+                "clean_cache": true
+            }
+        },
+        "remoteUser": "root"
+    },
     "script_runner": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {

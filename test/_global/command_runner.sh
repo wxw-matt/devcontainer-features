@@ -42,6 +42,7 @@ source dev-container-features-test-lib
 # check <LABEL> <cmd> [args...]
 
 LOG_DIR="/var/log/command_runner"
+check "Should have vim on the Linux" which vim
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.
