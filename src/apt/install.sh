@@ -12,7 +12,9 @@ debug_logln() {
 
 apt-get update  && \
     export DEBIAN_FRONTEND=noninteractive && \
-    apt-get install -y --no-install-recommends $PACKAGES && \
+    apt-get install -y --no-install-recommends $PACKAGES
+
+if [ -n "$CLEAN_CACHE" ]; then
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
+fi

@@ -1,7 +1,7 @@
 {
     "name": "Apt can install packages on Debian-like systems",
     "id": "apt",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A feature to install packages on Debian like systems",
     "options": {
         "packages": {
