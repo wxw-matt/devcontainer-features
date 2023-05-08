@@ -2,7 +2,7 @@
     "apt": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "command_runner": {
+            "apt": {
                 "packages": "vim telnet",
                 "clean_cache": true
             }
