@@ -1,7 +1,7 @@
 
-# Run shell commands (command_runner)
+# Apt can install packages on Debian-like systems (apt)
 
-A feature to run any valid shell commands, such as apt-get, curl/wget, of course, bash/zsh
+A feature to install packages on Debian like systems
 
 ## Example Usage
 
@@ -15,12 +15,11 @@ A feature to run any valid shell commands, such as apt-get, curl/wget, of course
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| command1 | The command 1. | string | - |
-| command2 | The command 2. | string | - |
-| command3 | The command 3. | string | - |
+| packages | Package names delimited by commas. | string | vim |
+| clean_cache | Remove cache after the packages installed | boolean | true |
 
 
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/wxw-matt/devcontainer-features/blob/main/src/command_runner/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/wxw-matt/devcontainer-features/blob/main/src/apt/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
