@@ -1,3 +1,5 @@
+[rationale.md](https://github.com/user-attachments/files/18007257/rationale.md)
+[rationale.md](https://github.com/user-attachments/files/18007247/rationale.md)
 # Command and Script Runner, a DevContainer feature that allows you to run any bash scripts without pain:
 
 ## `apt`
