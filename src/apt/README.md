@@ -17,7 +17,6 @@ A feature to install packages on Debian like systems
 |-----|-----|-----|-----|
 | packages | Package names delimited by commas. | string | vim |
 | clean_cache | Remove cache after the packages installed | boolean | true |
-| local_mirror | Using local apt mirror | boolean | true |
 
 
 
