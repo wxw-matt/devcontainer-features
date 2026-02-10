@@ -1,5 +1,5 @@
 
-# A Shell Command Runner (command_runner)
+# Run shell commands (command_runner)
 
 A feature to run any valid shell commands, such as apt-get, curl/wget, of course, bash/zsh
 
